@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cve8qrmpqy1td"]
+
+[ext_resource type="Texture2D" uid="uid://ht6wtaa411ge" path="res://images/Earth_Western_Hemisphere_transparent_background.png" id="1_1odxm"]
+[ext_resource type="Script" uid="uid://cgibnojrkq42h" path="res://scenes/planet.gd" id="2_h8ms6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
+radius = 2810.2844
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggt7d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1odxm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cktii"]
+radius = 921.3576
+
+[node name="Planet" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+
+[node name="Atmos" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h8ms6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ggt7d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="PlanetShape" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_cktii")
+script = ExtResource("2_h8ms6")

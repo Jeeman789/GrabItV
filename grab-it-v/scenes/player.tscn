@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://db7deiu77alh6"]
+
+[ext_resource type="Texture2D" uid="uid://bxl432w88h445" path="res://images/samus.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cjnrl76eajgne" path="res://scripts/player.gd" id="1_g2els"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 259.99997
+height = 1159.9999
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3vyb7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3vyb7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
+radius = 400.00006
+height = 1480.0002
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.05, 0.05)
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3vyb7")
+
+[node name="GravitySensor" type="Area2D" parent="."]
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravitySensor"]
+shape = SubResource("CapsuleShape2D_qhqgy")
+
+[connection signal="body_entered" from="GravitySensor" to="." method="_on_gravity_sensor_body_entered"]
+[connection signal="body_exited" from="GravitySensor" to="." method="_on_gravity_sensor_body_exited"]

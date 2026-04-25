@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfdus4w7c4ns8"]
+
+[ext_resource type="PackedScene" uid="uid://cve8qrmpqy1td" path="res://scenes/planet.tscn" id="1_bcvjt"]
+[ext_resource type="PackedScene" uid="uid://db7deiu77alh6" path="res://scenes/player.tscn" id="2_wlndn"]
+
+[node name="proto_level" type="Node2D"]
+
+[node name="Planet" parent="." instance=ExtResource("1_bcvjt")]
+position = Vector2(366, 391)
+
+[node name="Planet2" parent="." instance=ExtResource("1_bcvjt")]
+position = Vector2(795, 248)
+
+[node name="Player" parent="." instance=ExtResource("2_wlndn")]
+position = Vector2(368, 105)
