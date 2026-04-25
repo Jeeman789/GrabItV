@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cve8qrmpqy1td"]
 
 [ext_resource type="Texture2D" uid="uid://ht6wtaa411ge" path="res://images/Earth_Western_Hemisphere_transparent_background.png" id="1_1odxm"]
-[ext_resource type="Script" uid="uid://cgibnojrkq42h" path="res://scenes/planet.gd" id="2_h8ms6"]
+[ext_resource type="Script" uid="uid://cgibnojrkq42h" path="res://scripts/planet.gd" id="2_h8ms6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
 radius = 2810.2844
