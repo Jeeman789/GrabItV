@@ -35,24 +35,5 @@ func movement(delta):
 	velocity = velocity.limit_length(max_speed)
 	move_and_slide()
 	print(velocity)
-
-func _on_gravity_sensor_body_entered(body: Node2D) -> void:
-	if body.has_method("planet"):
-		rotate += 1
-		find_rotation(body, true)
-
-
-func _on_gravity_sensor_body_exited(body: Node2D) -> void:
-	if body.has_method("planet"):
-		rotate -= 1
-		find_rotation(body, false)
-
-func find_rotation(planet, isAdding):
-	if isAdding:
-		gravity_point = (gravity_point * (rotate - 1)) + planet.position / rotate
-	else:
-		gravity_point = (gravity_point * rotate - planet.position) / (rotate - 1)
-	
-	rotation_deg = get_angle_to(gravity_point)
 	
 	
