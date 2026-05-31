@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cve8qrmpqy1td"]
+[gd_scene load_steps=7 format=3 uid="uid://d2qqp25jng5o0"]
 
 [ext_resource type="Texture2D" uid="uid://ht6wtaa411ge" path="res://images/Earth_Western_Hemisphere_transparent_background.png" id="1_1odxm"]
-[ext_resource type="Script" uid="uid://bxkmirt7ioyye" path="res://scripts/planet.gd" id="1_h8ms6"]
+[ext_resource type="Script" uid="uid://byt0ha2gceypi" path="res://scenes/planet.gd" id="1_ggt7d"]
 [ext_resource type="Script" uid="uid://cnsqi0vlcafvx" path="res://scripts/atmos.gd" id="3_ggt7d"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ggt7d"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggt7d"]
+radius = 921.3576
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0k1rn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -15,29 +18,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cktii"]
-radius = 921.3576
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_48b8c"]
 radius = 2810.2844
 
-[node name="Planet" type="Area2D"]
+[node name="Planet" type="StaticBody2D"]
 scale = Vector2(0.1, 0.1)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("1_h8ms6")
+script = ExtResource("1_ggt7d")
+
+[node name="PlanetShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ggt7d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ggt7d")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="PlanetShape" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_cktii")
+scale = Vector2(1.0000001, 1.0000001)
+sprite_frames = SubResource("SpriteFrames_0k1rn")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.0000001, 1.0000001)
 script = ExtResource("3_ggt7d")
 
 [node name="Atmos" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("CircleShape2D_h8ms6")
+shape = SubResource("CircleShape2D_48b8c")
