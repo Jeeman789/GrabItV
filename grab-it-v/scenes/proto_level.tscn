@@ -32,4 +32,4 @@ position = Vector2(795, 248)
 script = SubResource("GDScript_cgfin")
 
 [node name="Player" parent="." instance=ExtResource("2_wlndn")]
-position = Vector2(368, 53.000004)
+position = Vector2(360, 97)
