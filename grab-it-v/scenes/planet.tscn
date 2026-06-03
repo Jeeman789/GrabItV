@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d2qqp25jng5o0"]
 
 [ext_resource type="Texture2D" uid="uid://ht6wtaa411ge" path="res://images/Earth_Western_Hemisphere_transparent_background.png" id="1_1odxm"]
-[ext_resource type="Script" uid="uid://byt0ha2gceypi" path="res://scenes/planet.gd" id="1_ggt7d"]
+[ext_resource type="Script" uid="uid://byt0ha2gceypi" path="res://scripts/planet.gd" id="1_ggt7d"]
 [ext_resource type="Script" uid="uid://cnsqi0vlcafvx" path="res://scripts/atmos.gd" id="3_ggt7d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggt7d"]
@@ -21,7 +21,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_48b8c"]
 radius = 2810.2844
 
-[node name="Planet" type="StaticBody2D"]
+[node name="Planet" type="StaticBody2D" groups=["Planet"]]
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_ggt7d")
 
@@ -32,7 +32,7 @@ shape = SubResource("CircleShape2D_ggt7d")
 scale = Vector2(1.0000001, 1.0000001)
 sprite_frames = SubResource("SpriteFrames_0k1rn")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Atmosphere"]]
 scale = Vector2(1.0000001, 1.0000001)
 script = ExtResource("3_ggt7d")
 

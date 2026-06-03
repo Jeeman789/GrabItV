@@ -57,5 +57,5 @@ shape = SubResource("CapsuleShape2D_qhqgy")
 [connection signal="body_entered" from="ground sensor" to="." method="_on_ground_sensor_body_entered"]
 [connection signal="body_exited" from="ground sensor" to="." method="_on_ground_sensor_body_exited"]
 [connection signal="timeout" from="Jump_timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="planet sensor" to="." method="_on_planet_sensor_body_entered"]
-[connection signal="body_exited" from="planet sensor" to="." method="_on_planet_sensor_body_exited"]
+[connection signal="area_entered" from="planet sensor" to="." method="_on_planet_sensor_area_entered"]
+[connection signal="area_exited" from="planet sensor" to="." method="_on_planet_sensor_area_exited"]
