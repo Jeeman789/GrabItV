@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://db7deiu77alh6"]
+[gd_scene load_steps=7 format=3 uid="uid://db7deiu77alh6"]
 
 [ext_resource type="Texture2D" uid="uid://bxl432w88h445" path="res://images/samus.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cjnrl76eajgne" path="res://scripts/player.gd" id="1_g2els"]
@@ -20,6 +20,10 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(320.0001, 40.000076)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
+radius = 399.99997
+height = 1599.9999
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.05, 0.05)
@@ -45,6 +49,13 @@ shape = SubResource("RectangleShape2D_g2els")
 [node name="Jump_timer" type="Timer" parent="."]
 wait_time = 0.8
 
+[node name="planet sensor" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="planet sensor"]
+shape = SubResource("CapsuleShape2D_qhqgy")
+
 [connection signal="body_entered" from="ground sensor" to="." method="_on_ground_sensor_body_entered"]
 [connection signal="body_exited" from="ground sensor" to="." method="_on_ground_sensor_body_exited"]
 [connection signal="timeout" from="Jump_timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="planet sensor" to="." method="_on_planet_sensor_body_entered"]
+[connection signal="body_exited" from="planet sensor" to="." method="_on_planet_sensor_body_exited"]
