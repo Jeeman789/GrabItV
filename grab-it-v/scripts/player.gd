@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-const speed = 50
-const max_speed = 600
-const jump_vel = 350
+const speed = 40
+const max_speed = 400
+const jump_vel = 550
 
-var gravity = 600
+var gravity = 650
 
 var current_dir = "left"
 var on_ground = false
@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
+	print(velocity)
 	if abs(rotation - (rotation_rad - PI/2)) > 0.01:
 		rotation = lerp_angle(rotation, rotation_rad - PI/2, 4 * delta)
 	
@@ -26,20 +27,16 @@ func movement(delta):
 	var left_vec = Vector2(cos(rotation_rad + PI/2), sin(rotation_rad + PI/2))
 	var right_vec = Vector2(cos(rotation_rad - PI/2), sin(rotation_rad - PI/2))
 	if Input.is_action_pressed("ui_left"):
-		if current_dir == "right":
-			velocity = Vector2(0,0)
 		current_dir = "left"
 		velocity += left_vec * speed
-		if velocity.length() > max_speed:
-			velocity = left_vec * max_speed
 	elif Input.is_action_pressed("ui_right"):
-		if current_dir == "left":
-			velocity = Vector2(0,0)
 		current_dir = "right"
 		velocity += right_vec * speed
-		if velocity.length() > max_speed:
-			velocity = right_vec * max_speed
 	
+	if velocity.length() > max_speed:
+		velocity = velocity * (max_speed / velocity.length())
+	
+	#Jumping and Gravity
 	if Input.is_action_pressed("ui_up") and on_ground and can_jump:
 		velocity = Vector2(cos(rotation_rad + PI), sin(rotation_rad + PI)) * jump_vel
 		can_jump = false
@@ -48,7 +45,12 @@ func movement(delta):
 		gravity_force(delta, Vector2(600, 300))
 	else:
 		gravity_force(delta, gravity_point)
-
+	
+	if on_ground:
+		velocity = velocity * 0.9
+	else:
+		velocity = velocity * 0.99
+		
 	move_and_slide()
 
 func gravity_force(delta, point: Vector2):
