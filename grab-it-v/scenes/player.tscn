@@ -29,6 +29,7 @@ height = 1599.9999
 scale = Vector2(0.05, 0.05)
 collision_layer = 3
 collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -46,16 +47,17 @@ position = Vector2(19.999992, 579.9996)
 scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="Jump_timer" type="Timer" parent="."]
-wait_time = 0.8
-
 [node name="planet sensor" type="Area2D" parent="."]
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="planet sensor"]
 shape = SubResource("CapsuleShape2D_qhqgy")
 
+[node name="Jump_timer" type="Timer" parent="."]
+wait_time = 0.8
+
 [connection signal="body_entered" from="ground sensor" to="." method="_on_ground_sensor_body_entered"]
 [connection signal="body_exited" from="ground sensor" to="." method="_on_ground_sensor_body_exited"]
-[connection signal="timeout" from="Jump_timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="planet sensor" to="." method="_on_planet_sensor_area_entered"]
 [connection signal="area_exited" from="planet sensor" to="." method="_on_planet_sensor_area_exited"]
+[connection signal="timeout" from="Jump_timer" to="." method="_on_timer_timeout"]
