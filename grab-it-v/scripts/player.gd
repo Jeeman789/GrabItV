@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const speed = 40
-const max_speed = 400
-const jump_vel = 550
+const speed = 20
+const max_speed = 200
+const jump_vel = 950
 
 var gravity = 650
 
@@ -18,14 +18,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
-	print(velocity)
 	if abs(rotation - (rotation_rad - PI/2)) > 0.01:
 		rotation = lerp_angle(rotation, rotation_rad - PI/2, 4 * delta)
 	
 func movement(delta):
 	#Left and Right movement
-	var left_vec = Vector2(cos(rotation_rad + PI/2), sin(rotation_rad + PI/2))
-	var right_vec = Vector2(cos(rotation_rad - PI/2), sin(rotation_rad - PI/2))
+	var left_vec = Vector2(cos(rotation_rad + 2*PI/5), sin(rotation_rad + 2*PI/5))
+	var right_vec = Vector2(cos(rotation_rad - 2*PI/5), sin(rotation_rad - 2*PI/5))
 	if Input.is_action_pressed("ui_left"):
 		current_dir = "left"
 		velocity += left_vec * speed
@@ -46,6 +45,7 @@ func movement(delta):
 	else:
 		gravity_force(delta, gravity_point)
 	
+	# Drag
 	if on_ground:
 		velocity = velocity * 0.9
 	else:
