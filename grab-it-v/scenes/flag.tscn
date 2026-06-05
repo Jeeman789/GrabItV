@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://l5u2bqlstuk1"]
+
+[ext_resource type="Texture2D" uid="uid://c1q5clswwvcqk" path="res://images/mickey.png" id="1_76ss4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76ss4"]
+size = Vector2(28, 38)
+
+[node name="Flag" type="Area2D" groups=["Flag"]]
+
+[node name="Mickey" type="Sprite2D" parent="."]
+position = Vector2(7.1525574e-07, -8.791685e-07)
+scale = Vector2(0.09523809, 0.0987013)
+texture = ExtResource("1_76ss4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_76ss4")

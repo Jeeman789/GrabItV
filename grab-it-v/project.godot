@@ -17,7 +17,7 @@ config/icon="res://images/icon.svg"
 
 [autoload]
 
-ProtoLevel="*res://scripts/proto_level.gd"
+Global="*res://scripts/Global.gd"
 
 [rendering]
 

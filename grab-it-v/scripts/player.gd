@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
 const speed = 20
-const max_speed = 200
-const jump_vel = 950
+const max_speed = 400
+const jump_vel = 400
 
-var gravity = 650
+var gravity = 200
 
 var current_dir = "left"
+var upside_down = false
 var on_ground = false
 var can_jump = true
 var planets = []
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
+	print(rotation)
 	if abs(rotation - (rotation_rad - PI/2)) > 0.01:
 		rotation = lerp_angle(rotation, rotation_rad - PI/2, 4 * delta)
 	
@@ -26,17 +28,33 @@ func movement(delta):
 	var left_vec = Vector2(cos(rotation_rad + 2*PI/5), sin(rotation_rad + 2*PI/5))
 	var right_vec = Vector2(cos(rotation_rad - 2*PI/5), sin(rotation_rad - 2*PI/5))
 	if Input.is_action_pressed("ui_left"):
-		current_dir = "left"
-		velocity += left_vec * speed
+		if not upside_down:
+			current_dir = "left"
+			velocity += left_vec * speed
+		else:
+			current_dir = "right"
+			velocity += right_vec * speed
 	elif Input.is_action_pressed("ui_right"):
-		current_dir = "right"
-		velocity += right_vec * speed
+		if not upside_down:
+			current_dir = "right"
+			velocity += right_vec * speed
+		else:
+			current_dir = "left"
+			velocity += left_vec * speed
+	
+	#Determine Orientation
+	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
+		if rotation < PI/2 and rotation > -PI/2:
+			upside_down = false
+		else:
+			upside_down = true
 	
 	if velocity.length() > max_speed:
 		velocity = velocity * (max_speed / velocity.length())
 	
 	#Jumping and Gravity
 	if Input.is_action_pressed("ui_up") and on_ground and can_jump:
+		print(velocity)
 		velocity = Vector2(cos(rotation_rad + PI), sin(rotation_rad + PI)) * jump_vel
 		can_jump = false
 		$Jump_timer.start()
@@ -48,8 +66,6 @@ func movement(delta):
 	# Drag
 	if on_ground:
 		velocity = velocity * 0.9
-	else:
-		velocity = velocity * 0.99
 		
 	move_and_slide()
 
@@ -79,6 +95,8 @@ func _on_planet_sensor_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Atmosphere"):
 		planets.append(area.global_position)
 		find_gravity_point()
+	elif area.is_in_group("Flag"):
+		Global.next_scene()
 
 func _on_planet_sensor_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Atmosphere"):

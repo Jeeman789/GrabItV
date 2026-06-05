@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ht6wtaa411ge" path="res://images/Earth_Western_Hemisphere_transparent_background.png" id="1_1odxm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ggt7d"]
-radius = 921.3576
+[sub_resource type="CircleShape2D" id="CircleShape2D_cktii"]
+radius = 880.2272
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0k1rn"]
 animations = [{
@@ -16,14 +16,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_48b8c"]
-radius = 2810.2844
+[sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
+radius = 2982.415
 
 [node name="Planet" type="StaticBody2D" groups=["Planet"]]
 scale = Vector2(0.1, 0.1)
 
 [node name="PlanetShape" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ggt7d")
+z_index = 1
+shape = SubResource("CircleShape2D_cktii")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.0000001, 1.0000001)
@@ -34,4 +35,4 @@ scale = Vector2(1.0000001, 1.0000001)
 
 [node name="Atmos" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("CircleShape2D_48b8c")
+shape = SubResource("CircleShape2D_h8ms6")

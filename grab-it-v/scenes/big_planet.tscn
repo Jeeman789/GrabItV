@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1jctl07m2a6i"]
+
+[ext_resource type="Texture2D" uid="uid://byeat3jjm42jj" path="res://images/Jupiter_(transparent).png" id="1_6urn0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggt7d"]
+radius = 7720.0054
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tl1ux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6urn0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_48b8c"]
+radius = 9739.999
+
+[node name="Big_Planet" type="StaticBody2D" groups=["Planet"]]
+scale = Vector2(0.1, 0.1)
+
+[node name="PlanetShape" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_ggt7d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_tl1ux")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Atmosphere"]]
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Atmos" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_48b8c")
