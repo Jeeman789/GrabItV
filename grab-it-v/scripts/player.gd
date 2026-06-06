@@ -19,7 +19,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
-	print(rotation)
 	if abs(rotation - (rotation_rad - PI/2)) > 0.01:
 		rotation = lerp_angle(rotation, rotation_rad - PI/2, 4 * delta)
 	
@@ -43,18 +42,18 @@ func movement(delta):
 			velocity += left_vec * speed
 	
 	#Determine Orientation
-	if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
-		if rotation < PI/2 and rotation > -PI/2:
-			upside_down = false
-		else:
-			upside_down = true
+	#if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
+		#print("hello")
+		#if rotation < 3*PI/5 and rotation > -3*PI/5:
+			#upside_down = false
+		#else:
+			#upside_down = true
 	
 	if velocity.length() > max_speed:
 		velocity = velocity * (max_speed / velocity.length())
 	
 	#Jumping and Gravity
 	if Input.is_action_pressed("ui_up") and on_ground and can_jump:
-		print(velocity)
 		velocity = Vector2(cos(rotation_rad + PI), sin(rotation_rad + PI)) * jump_vel
 		can_jump = false
 		$Jump_timer.start()
@@ -96,7 +95,7 @@ func _on_planet_sensor_area_entered(area: Area2D) -> void:
 		planets.append(area.global_position)
 		find_gravity_point()
 	elif area.is_in_group("Flag"):
-		Global.next_scene()
+		SceneManager.next_scene()
 
 func _on_planet_sensor_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Atmosphere"):
