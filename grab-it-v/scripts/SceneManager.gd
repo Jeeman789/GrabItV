@@ -1,5 +1,7 @@
 extends Node
 
+@export var player : CharacterBody2D
+
 var level_order = [
 	"res://scenes/levels/proto_level.tscn",
 	"res://scenes/levels/proto_level_2.tscn"
@@ -8,7 +10,6 @@ var current_level_index = 0
 var current_level = null
 
 func _ready():
-	print("Ready called on:", self)
 	next_scene(true)
 
 func next_scene(first: bool = false):
@@ -22,10 +23,21 @@ func next_scene(first: bool = false):
 	var level = load(level_order[current_level_index])
 	if level:
 		current_level = level.instantiate()
-		SceneManager.add_child(current_level)
+		add_child(current_level)
+		
+		var level_data = load_json_file("res://resources/level_data.tres")
+		player.position = Vector2(level_data["levels"][current_level.name]["spawn_point"]["x"], level_data["levels"][current_level.name]["spawn_point"]["y"])
 		
 		
 	else:
 		printerr("Failed to load level path: ", level_order[current_level_index])
-	
-	
+
+func load_json_file(file_path: String):
+	if FileAccess.file_exists(file_path):
+		var json_string = FileAccess.get_file_as_string(file_path)
+		var data = JSON.parse_string(json_string)
+		
+		return data
+
+func _on_player_level_finished() -> void:
+	next_scene()

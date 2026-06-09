@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal level_finished
+
 const speed = 20
 const max_speed = 400
 const jump_vel = 400
@@ -95,7 +97,8 @@ func _on_planet_sensor_area_entered(area: Area2D) -> void:
 		planets.append(area.global_position)
 		find_gravity_point()
 	elif area.is_in_group("Flag"):
-		SceneManager.next_scene()
+		level_finished.emit()
+		print("hey")
 
 func _on_planet_sensor_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Atmosphere"):

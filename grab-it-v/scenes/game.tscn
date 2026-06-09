@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtywcw0iof7ar"]
+[gd_scene load_steps=3 format=3 uid="uid://dtywcw0iof7ar"]
 
 [ext_resource type="PackedScene" uid="uid://db7deiu77alh6" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://c1wqu3qyswwwx" path="res://scripts/SceneManager.gd" id="2_yqjtg"]
 
 [node name="Game" type="Node2D"]
 
-[node name="UI" type="Node2D" parent="."]
+[node name="UIManager" type="Node2D" parent="."]
+
+[node name="SceneManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("2_yqjtg")
+player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+
+[connection signal="level_finished" from="Player" to="SceneManager" method="_on_player_level_finished"]
