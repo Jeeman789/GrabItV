@@ -10,6 +10,7 @@ var current_level_index = 0
 var current_level = null
 
 func _ready():
+	EventBus.level_finished.connect(_on_level_finished)
 	next_scene(true)
 
 func next_scene(first: bool = false):
@@ -19,15 +20,16 @@ func next_scene(first: bool = false):
 	
 	if not first:
 		current_level_index += 1
+		
+	print(level_order[current_level_index])
 	
 	var level = load(level_order[current_level_index])
 	if level:
 		current_level = level.instantiate()
 		add_child(current_level)
 		
-		var level_data = load_json_file("res://resources/level_data.tres")
+		var level_data = load_json_file("res://resources/level_data.json")
 		player.position = Vector2(level_data["levels"][current_level.name]["spawn_point"]["x"], level_data["levels"][current_level.name]["spawn_point"]["y"])
-		
 		
 	else:
 		printerr("Failed to load level path: ", level_order[current_level_index])
@@ -39,5 +41,5 @@ func load_json_file(file_path: String):
 		
 		return data
 
-func _on_player_level_finished() -> void:
+func _on_level_finished() -> void:
 	next_scene()

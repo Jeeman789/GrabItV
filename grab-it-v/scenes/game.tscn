@@ -12,5 +12,3 @@ script = ExtResource("2_yqjtg")
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-
-[connection signal="level_finished" from="Player" to="SceneManager" method="_on_player_level_finished"]
