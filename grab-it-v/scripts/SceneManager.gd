@@ -14,14 +14,10 @@ func _ready():
 	next_scene(true)
 
 func next_scene(first: bool = false):
-	if is_instance_valid(current_level):
-		current_level.queue_free()
-		current_level = null
+	clear_scene()
 	
 	if not first:
 		current_level_index += 1
-		
-	print(level_order[current_level_index])
 	
 	var level = load(level_order[current_level_index])
 	if level:
@@ -34,12 +30,18 @@ func next_scene(first: bool = false):
 	else:
 		printerr("Failed to load level path: ", level_order[current_level_index])
 
+func clear_scene():
+	if is_instance_valid(current_level):
+		current_level.queue_free()
+		current_level = null
+
 func load_json_file(file_path: String):
+	var data = null
 	if FileAccess.file_exists(file_path):
 		var json_string = FileAccess.get_file_as_string(file_path)
-		var data = JSON.parse_string(json_string)
+		data = JSON.parse_string(json_string)
 		
-		return data
+	return data
 
 func _on_level_finished() -> void:
 	next_scene()

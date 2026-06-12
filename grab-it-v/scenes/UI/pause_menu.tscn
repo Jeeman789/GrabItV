@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://fwvd1ml4ppu5"]
+
+[sub_resource type="Gradient" id="Gradient_txrub"]
+colors = PackedColorArray(1.2995303e-06, 0, 0.55972713, 1, 0.24313726, 0.003921569, 0.56078434, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qo2fb"]
+gradient = SubResource("Gradient_txrub")
+
+[node name="Pause Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 453.0
+offset_bottom = 651.0
+texture = SubResource("GradientTexture1D_qo2fb")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
