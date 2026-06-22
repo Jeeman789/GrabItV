@@ -18,6 +18,7 @@ config/icon="res://images/icon.svg"
 [autoload]
 
 EventBus="*res://scripts/Autoloads/EventBus.gd"
+GravityFunctions="*res://scripts/Autoloads/GravityFunctions.gd"
 
 [rendering]
 
