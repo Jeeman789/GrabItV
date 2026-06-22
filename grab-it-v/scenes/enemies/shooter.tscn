@@ -16,3 +16,12 @@ mesh = SubResource("QuadMesh_1qyqb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1qyqb")
+
+[node name="fire_bullet" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="muzzle" type="Marker2D" parent="."]
+position = Vector2(9, -1)
+
+[connection signal="timeout" from="fire_bullet" to="." method="_on_fire_bullet_timeout"]
