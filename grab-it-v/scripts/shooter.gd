@@ -12,7 +12,7 @@ func _on_fire_bullet_timeout() -> void:
 	var current_bullet = bullet.instantiate()
 	
 	direction_muzzle = muzzle.global_position - global_position
-	direction_muzzle.normalized()
+	direction_muzzle = direction_muzzle.normalized()
 	
 	current_bullet.global_position = muzzle.global_position
 	current_bullet.direction = direction_muzzle
