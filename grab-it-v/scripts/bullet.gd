@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 50
+const speed = 400
 const grav_speed = 20
 
 var direction = Vector2(1.0,0.0)
@@ -11,10 +11,8 @@ var rotation_rad = 0.0
 
 func _ready() -> void:
 	velocity = direction * speed
-	move_and_slide()
 
 func _physics_process(delta: float) -> void:
-	print(velocity)
 	movement(delta)
 	if abs(rotation - (rotation_rad)) > 0.01:
 		rotation = lerp_angle(rotation, rotation_rad, 4 * delta)
@@ -27,14 +25,17 @@ func movement(delta):
 
 func gravity_force(point: Vector2):
 	var grav_dir = (point - position).normalized()
+	print(grav_dir)
 	rotation_rad = direction.angle()
-	velocity = grav_dir * grav_speed
+	velocity += grav_dir * grav_speed
+	velocity = velocity.normalized() * speed
 
 
 func _on_bullet_sensor_area_entered(area: Area2D) -> void:
+	print("hey")
 	if area.is_in_group("Atmosphere"):
 		planets.append(area.global_position)
-		GravityFunctions.find_gravity_point(planets)
+		point_of_gravity = GravityFunctions.find_gravity_point(planets)
 		in_orbit = true
 
 
@@ -48,4 +49,4 @@ func _on_bullet_sensor_area_exited(area: Area2D) -> void:
 		if len(planets) <= 0:
 			in_orbit = false
 		else:
-			GravityFunctions.find_gravity_point(planets)
+			point_of_gravity = GravityFunctions.find_gravity_point(planets)
