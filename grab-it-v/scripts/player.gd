@@ -4,7 +4,7 @@ const speed = 20
 const max_speed = 400
 const jump_vel = 400
 
-var gravity = 200
+var gravity = 325
 
 var current_dir = "left"
 var upside_down = false
@@ -14,13 +14,15 @@ var planets = []
 var gravity_point = Vector2(-1,-1)
 var rotation_rad = 0.0
 
-func _ready() -> void:	
+func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
 	if abs(rotation - (rotation_rad - PI/2)) > 0.01:
 		rotation = lerp_angle(rotation, rotation_rad - PI/2, 4 * delta)
+	if not get_tree().paused and Input.is_action_pressed("pause"):
+		EventBus.pause.emit()
 	
 func movement(delta):
 	#Left and Right movement

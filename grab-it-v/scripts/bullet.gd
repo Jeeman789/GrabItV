@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const speed = 400
-const grav_speed = 20
+const grav_speed = 7
 
 var direction = Vector2(1.0,0.0)
 var planets = []
@@ -25,14 +25,12 @@ func movement(delta):
 
 func gravity_force(point: Vector2):
 	var grav_dir = (point - position).normalized()
-	print(grav_dir)
 	rotation_rad = direction.angle()
 	velocity += grav_dir * grav_speed
 	velocity = velocity.normalized() * speed
 
 
 func _on_bullet_sensor_area_entered(area: Area2D) -> void:
-	print("hey")
 	if area.is_in_group("Atmosphere"):
 		planets.append(area.global_position)
 		point_of_gravity = GravityFunctions.find_gravity_point(planets)
@@ -50,3 +48,8 @@ func _on_bullet_sensor_area_exited(area: Area2D) -> void:
 			in_orbit = false
 		else:
 			point_of_gravity = GravityFunctions.find_gravity_point(planets)
+
+
+func _on_bullet_sensor_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		EventBus.game_over.emit()

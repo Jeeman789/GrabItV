@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxj24jo2fy8o6" path="res://scenes/enemies/shooter.tscn" id="4_7ic40"]
 
 [node name="proto_level" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_0pugu")
 
 [node name="Planet" parent="." instance=ExtResource("2_7ic40")]

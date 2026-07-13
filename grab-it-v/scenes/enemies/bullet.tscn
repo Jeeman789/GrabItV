@@ -6,10 +6,10 @@
 text = ">"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2l01"]
-size = Vector2(8, 8)
+size = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hl25f"]
-size = Vector2(6, 6)
+size = Vector2(8, 8)
 
 [node name="bullet" type="CharacterBody2D"]
 collision_layer = 3
@@ -33,3 +33,4 @@ shape = SubResource("RectangleShape2D_hl25f")
 
 [connection signal="area_entered" from="bullet_sensor" to="." method="_on_bullet_sensor_area_entered"]
 [connection signal="area_exited" from="bullet_sensor" to="." method="_on_bullet_sensor_area_exited"]
+[connection signal="body_entered" from="bullet_sensor" to="." method="_on_bullet_sensor_body_entered"]

@@ -1,14 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtywcw0iof7ar"]
+[gd_scene load_steps=4 format=3 uid="uid://dtywcw0iof7ar"]
 
+[ext_resource type="Script" uid="uid://c234ovy1j3xbw" path="res://scripts/UIManager.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://db7deiu77alh6" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://c1wqu3qyswwwx" path="res://scripts/SceneManager.gd" id="2_yqjtg"]
 
 [node name="Game" type="Node2D"]
+process_mode = 3
 
-[node name="UIManager" type="Node2D" parent="."]
+[node name="UIManager" type="Control" parent="." node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lnu2h")
+player = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UIManager"]
+
+[node name="CenterContainer" type="CenterContainer" parent="UIManager/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+use_top_left = true
 
 [node name="SceneManager" type="Node2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("2_yqjtg")
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+process_mode = 1

@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://fwvd1ml4ppu5"]
+[gd_scene load_steps=4 format=3 uid="uid://fwvd1ml4ppu5"]
+
+[ext_resource type="Script" uid="uid://cvmtm2uvgelfb" path="res://scripts/pause_menu.gd" id="1_qo2fb"]
 
 [sub_resource type="Gradient" id="Gradient_txrub"]
 colors = PackedColorArray(1.2995303e-06, 0, 0.55972713, 1, 0.24313726, 0.003921569, 0.56078434, 1)
@@ -13,6 +15,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0008168, 0.9949741)
+script = ExtResource("1_qo2fb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -20,7 +24,22 @@ offset_right = 453.0
 offset_bottom = 651.0
 texture = SubResource("GradientTexture1D_qo2fb")
 
-[node name="Button" type="Button" parent="."]
+[node name="Continue_button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 94.0
+offset_top = 58.0
+offset_right = 327.0
+offset_bottom = 110.0
+text = "Continue"
+
+[node name="Options_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 145.0
+offset_right = 327.0
+offset_bottom = 197.0
+text = "Options
+"
+
+[connection signal="button_down" from="Continue_button" to="." method="_on_continue_button_button_down"]
+[connection signal="button_down" from="Options_button" to="." method="_on_options_button_button_down"]
