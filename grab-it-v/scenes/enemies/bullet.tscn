@@ -31,6 +31,11 @@ shape = SubResource("RectangleShape2D_c2l01")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bullet_sensor"]
 shape = SubResource("RectangleShape2D_hl25f")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="area_entered" from="bullet_sensor" to="." method="_on_bullet_sensor_area_entered"]
 [connection signal="area_exited" from="bullet_sensor" to="." method="_on_bullet_sensor_area_exited"]
 [connection signal="body_entered" from="bullet_sensor" to="." method="_on_bullet_sensor_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://cm8hpplsghjsk"]
+[gd_scene load_steps=3 format=3 uid="uid://cm8hpplsghjsk"]
+
+[sub_resource type="Gradient" id="Gradient_86ujf"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u46ye"]
+gradient = SubResource("Gradient_86ujf")
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -8,17 +13,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HSlider" type="HSlider" parent="."]
-layout_mode = 0
-offset_left = 379.0
-offset_top = 219.0
-offset_right = 667.0
-offset_bottom = 288.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Volume_Label" type="Label" parent="."]
-layout_mode = 0
+[node name="Volume_Label" type="Label" parent="CanvasLayer"]
+z_index = 99
 offset_left = 376.0
 offset_top = 188.0
 offset_right = 622.0
 offset_bottom = 211.0
 text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+z_index = 99
+offset_left = 379.0
+offset_top = 219.0
+offset_right = 667.0
+offset_bottom = 288.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+z_index = 98
+offset_right = 1151.0
+offset_bottom = 645.0
+texture = SubResource("GradientTexture1D_u46ye")

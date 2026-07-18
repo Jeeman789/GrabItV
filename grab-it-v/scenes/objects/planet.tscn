@@ -19,7 +19,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_h8ms6"]
 radius = 2982.415
 
-[node name="Planet" type="StaticBody2D" groups=["Planet"]]
+[node name="Planet" type="StaticBody2D"]
 scale = Vector2(0.1, 0.1)
 
 [node name="PlanetShape" type="CollisionShape2D" parent="."]

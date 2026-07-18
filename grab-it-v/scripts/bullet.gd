@@ -16,6 +16,8 @@ func _physics_process(delta: float) -> void:
 	movement(delta)
 	if abs(rotation - (rotation_rad)) > 0.01:
 		rotation = lerp_angle(rotation, rotation_rad, 4 * delta)
+	if velocity.length() < 20:
+		queue_free()
 
 func movement(delta):
 	if in_orbit:
@@ -35,6 +37,8 @@ func _on_bullet_sensor_area_entered(area: Area2D) -> void:
 		planets.append(area.global_position)
 		point_of_gravity = GravityFunctions.find_gravity_point(planets)
 		in_orbit = true
+	if area.is_in_group("Planet"):
+		queue_free()
 
 
 func _on_bullet_sensor_area_exited(area: Area2D) -> void:
@@ -53,3 +57,7 @@ func _on_bullet_sensor_area_exited(area: Area2D) -> void:
 func _on_bullet_sensor_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		EventBus.game_over.emit()
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
