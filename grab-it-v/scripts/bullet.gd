@@ -10,6 +10,8 @@ var in_orbit = false
 var rotation_rad = 0.0
 
 func _ready() -> void:
+	EventBus.reset_level.connect(_on_reset_level)
+	EventBus.level_finished.connect(_on_level_finished)
 	velocity = direction * speed
 
 func _physics_process(delta: float) -> void:
@@ -57,7 +59,17 @@ func _on_bullet_sensor_area_exited(area: Area2D) -> void:
 func _on_bullet_sensor_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		EventBus.game_over.emit()
+	if body.is_in_group("Planet"):
+		queue_free()
 
 
 func _on_timer_timeout() -> void:
+	queue_free()
+
+
+func _on_reset_level():
+	queue_free()
+	
+
+func _on_level_finished():
 	queue_free()

@@ -26,12 +26,18 @@ func next_scene(same: bool = false):
 		add_child(current_level)
 		
 		var level_data = load_json_file("res://resources/level_data.json")
-		player.position = Vector2(level_data["levels"][current_level.name]["spawn_point"]["x"], level_data["levels"][current_level.name]["spawn_point"]["y"])
+		var scene_name = level_order[current_level_index].get_file().get_basename()
+		var info = level_data["levels"][scene_name]
+
+		player.position = Vector2(
+			info["spawn_point"]["x"],
+			info["spawn_point"]["y"]
+		)
 		player.velocity = Vector2(0,0)
 		
 		var player_camera:Camera2D = player.get_child(5)
-		player_camera.limit_right = int(level_data["levels"][current_level.name]["camera"]["right"])
-		player_camera.limit_bottom = int(level_data["levels"][current_level.name]["camera"]["bottom"])
+		player_camera.limit_right = int(info["camera"]["right"])
+		player_camera.limit_bottom = int(info["camera"]["bottom"])
 		
 	else:
 		printerr("Failed to load level path: ", level_order[current_level_index])
