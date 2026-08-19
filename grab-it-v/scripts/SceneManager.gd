@@ -3,6 +3,7 @@ extends Node
 @export var player : CharacterBody2D
 
 var level_order = [
+	"res://scenes/levels/level_1.tscn",
 	"res://scenes/levels/proto_level.tscn",
 	"res://scenes/levels/proto_level_2.tscn"
 ]

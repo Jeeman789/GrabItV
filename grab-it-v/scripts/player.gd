@@ -60,7 +60,7 @@ func movement(delta):
 		can_jump = false
 		$Jump_timer.start()
 	elif gravity_point == Vector2(-1,-1):
-		gravity_force(delta, Vector2(600, 300))
+		pass
 	else:
 		gravity_force(delta, gravity_point)
 	

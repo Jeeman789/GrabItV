@@ -25,10 +25,18 @@ rotation = 1.406251
 position = Vector2(1086, 66.00003)
 rotation = 2.4105854
 
+[node name="Shooter4" parent="Enemies" instance=ExtResource("4_7ic40")]
+position = Vector2(662, 703.00006)
+rotation = 3.2660992
+
 [node name="Shooter2" parent="Enemies" instance=ExtResource("4_7ic40")]
 position = Vector2(1014, 536)
 rotation = -2.544852
 
 [node name="Shooter3" parent="Enemies" instance=ExtResource("4_7ic40")]
-position = Vector2(513, 79)
-rotation = 2.6990166
+position = Vector2(470, 2.9999847)
+rotation = 2.5198572
+
+[node name="Shooter5" parent="Enemies" instance=ExtResource("4_7ic40")]
+position = Vector2(503.99994, 51.000015)
+rotation = 1.3229337
