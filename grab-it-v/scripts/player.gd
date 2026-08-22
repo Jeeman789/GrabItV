@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 20
+const speed = 25
 const max_speed = 400
 const jump_vel = 400
 
@@ -26,26 +26,30 @@ func _physics_process(delta: float) -> void:
 	
 func movement(delta):
 	#Left and Right movement
-	var left_vec = Vector2(cos(rotation_rad + 2*PI/5), sin(rotation_rad + 2*PI/5))
-	var right_vec = Vector2(cos(rotation_rad - 2*PI/5), sin(rotation_rad - 2*PI/5))
+	var left_vec = Vector2(cos(rotation_rad + PI/2), sin(rotation_rad + PI/2))
+	var right_vec = Vector2(cos(rotation_rad - PI/2), sin(rotation_rad - PI/2))
+	var move_speed
+	if not on_ground:
+		move_speed = 2.5
+	else:
+		move_speed = speed
 	if Input.is_action_pressed("ui_left"):
 		if not upside_down:
 			current_dir = "left"
-			velocity += left_vec * speed
+			velocity += left_vec * move_speed
 		else:
 			current_dir = "right"
-			velocity += right_vec * speed
+			velocity += right_vec * move_speed
 	elif Input.is_action_pressed("ui_right"):
 		if not upside_down:
 			current_dir = "right"
-			velocity += right_vec * speed
+			velocity += right_vec * move_speed
 		else:
 			current_dir = "left"
-			velocity += left_vec * speed
+			velocity += left_vec * move_speed
 	
-	#Determine Orientation
+	# Determine Orientation
 	#if Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right"):
-		#print("hello")
 		#if rotation < 3*PI/5 and rotation > -3*PI/5:
 			#upside_down = false
 		#else:
@@ -60,7 +64,7 @@ func movement(delta):
 		can_jump = false
 		$Jump_timer.start()
 	elif gravity_point == Vector2(-1,-1):
-		pass
+		rotation_rad = velocity.angle()
 	else:
 		gravity_force(delta, gravity_point)
 	

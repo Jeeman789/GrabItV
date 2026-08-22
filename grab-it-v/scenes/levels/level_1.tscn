@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://vmwcbvgdowtq"]
+[gd_scene load_steps=6 format=3 uid="uid://vmwcbvgdowtq"]
 
 [ext_resource type="PackedScene" uid="uid://dbq0pkbstp1i5" path="res://scenes/objects/med_planet.tscn" id="1_6iamk"]
 [ext_resource type="PackedScene" uid="uid://dbfargykcwbv5" path="res://scenes/objects/small_planet.tscn" id="2_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://b1jctl07m2a6i" path="res://scenes/objects/big_planet.tscn" id="3_x42e6"]
+[ext_resource type="PackedScene" uid="uid://l5u2bqlstuk1" path="res://scenes/objects/flag.tscn" id="4_x42e6"]
+[ext_resource type="Texture2D" uid="uid://cnjmrrtdwwswv" path="res://images/night sky 1.png" id="5_6761a"]
 
 [node name="Level1" type="Node2D"]
 
@@ -32,3 +34,13 @@ position = Vector2(4565, 819)
 
 [node name="Planet8" parent="." instance=ExtResource("1_6iamk")]
 position = Vector2(5614, 1343)
+
+[node name="Flag" parent="." instance=ExtResource("4_x42e6")]
+position = Vector2(5750, 1203)
+rotation = 0.7813428
+
+[node name="NightSky1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3774.0007, 2213.5005)
+scale = Vector2(103.18, 111.16072)
+texture = ExtResource("5_6761a")
