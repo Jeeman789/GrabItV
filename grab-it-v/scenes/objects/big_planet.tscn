@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1jctl07m2a6i"]
+[gd_scene load_steps=6 format=3 uid="uid://b1jctl07m2a6i"]
 
 [ext_resource type="Texture2D" uid="uid://byeat3jjm42jj" path="res://images/Jupiter_(transparent).png" id="1_6urn0"]
+[ext_resource type="Script" uid="uid://3sg0staklb4" path="res://scripts/line_2d.gd" id="2_u45ch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggt7d"]
 radius = 7720.0054
@@ -19,7 +20,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_48b8c"]
 radius = 9330.085
 
-[node name="Big_Planet" type="StaticBody2D" groups=["Planet"]]
+[node name="Big_Planet" type="StaticBody2D" groups=["Big_Planet", "Planet"]]
 scale = Vector2(0.1, 0.1)
 
 [node name="PlanetShape" type="CollisionShape2D" parent="."]
@@ -37,3 +38,8 @@ scale = Vector2(1.0000001, 1.0000001)
 z_index = 1
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_48b8c")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(6819.9995, -7239.9995, 7039.9995, 8259.999, -7459.9995, 8479.999, -7269.9995, -6959.9995)
+width = 20.0
+script = ExtResource("2_u45ch")

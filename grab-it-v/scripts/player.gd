@@ -10,6 +10,7 @@ var current_dir = "left"
 var upside_down = false
 var on_ground = false
 var can_jump = true
+var can_reverse = false
 var planets = []
 var gravity_point = Vector2(-1,-1)
 var rotation_rad = 0.0
@@ -68,6 +69,11 @@ func movement(delta):
 	else:
 		gravity_force(delta, gravity_point)
 	
+	#Reverse force
+	if Input.is_action_pressed("ability") and not on_ground and can_reverse:
+		velocity = velocity * -1
+		can_reverse = false
+	
 	# Drag
 	if on_ground:
 		velocity = velocity * 0.9
@@ -88,6 +94,7 @@ func find_gravity_point():
 func _on_ground_sensor_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Planet"):
 		on_ground = true
+		can_reverse = true
 
 func _on_ground_sensor_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Planet"):

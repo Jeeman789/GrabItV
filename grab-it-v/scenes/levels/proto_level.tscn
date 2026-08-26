@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfdus4w7c4ns8"]
+[gd_scene load_steps=6 format=3 uid="uid://dfdus4w7c4ns8"]
 
 [ext_resource type="Script" uid="uid://h0e1nfdqvawl" path="res://scripts/proto_level.gd" id="1_0pugu"]
 [ext_resource type="PackedScene" uid="uid://l5u2bqlstuk1" path="res://scenes/objects/flag.tscn" id="3_tqd7r"]
 [ext_resource type="PackedScene" uid="uid://cxj24jo2fy8o6" path="res://scenes/enemies/shooter.tscn" id="4_7ic40"]
 [ext_resource type="PackedScene" uid="uid://dbq0pkbstp1i5" path="res://scenes/objects/med_planet.tscn" id="4_tqd7r"]
+[ext_resource type="Texture2D" uid="uid://cnjmrrtdwwswv" path="res://images/night sky 1.png" id="5_tqd7r"]
 
 [node name="proto_level" type="Node2D"]
 process_mode = 1
@@ -16,20 +17,28 @@ rotation = 1.406251
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Shooter" parent="Enemies" instance=ExtResource("4_7ic40")]
-position = Vector2(1086, 66.00003)
-rotation = 2.4105854
+position = Vector2(985.00006, -33.999985)
+rotation = 1.8274072
+
+[node name="Shooter6" parent="Enemies" instance=ExtResource("4_7ic40")]
+position = Vector2(709, -21)
+rotation = 1.0711422
 
 [node name="Shooter4" parent="Enemies" instance=ExtResource("4_7ic40")]
 position = Vector2(662, 703.00006)
-rotation = 3.2660992
+rotation = 3.2556887
 
 [node name="Shooter2" parent="Enemies" instance=ExtResource("4_7ic40")]
-position = Vector2(1014, 536)
-rotation = -2.544852
+position = Vector2(1013.00006, 568)
+rotation = -2.301917
+
+[node name="Shooter7" parent="Enemies" instance=ExtResource("4_7ic40")]
+position = Vector2(783.99994, 599.99994)
+rotation = -1.4069275
 
 [node name="Shooter3" parent="Enemies" instance=ExtResource("4_7ic40")]
 position = Vector2(470, 2.9999847)
-rotation = 2.5198572
+rotation = 2.5630376
 
 [node name="Shooter5" parent="Enemies" instance=ExtResource("4_7ic40")]
 position = Vector2(503.99994, 51.000015)
@@ -40,3 +49,9 @@ position = Vector2(290, 397)
 
 [node name="Planet4" parent="." instance=ExtResource("4_tqd7r")]
 position = Vector2(865, 275)
+
+[node name="NightSky1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(574, 329.99997)
+scale = Vector2(24.08, 29.964287)
+texture = ExtResource("5_tqd7r")
