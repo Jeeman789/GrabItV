@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://lu74wly3omse"]
+
+[ext_resource type="Texture2D" uid="uid://cnjmrrtdwwswv" path="res://images/night sky 1.png" id="1_8b7mv"]
+[ext_resource type="Script" uid="uid://bjtbjvuwdm4qs" path="res://scripts/level_select.gd" id="1_ycsi5"]
+
+[node name="Level Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ycsi5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1157.0
+offset_bottom = 659.0
+texture = ExtResource("1_8b7mv")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 84.0
+offset_right = 349.0
+offset_bottom = 150.0
+text = "Level 1"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 213.0
+offset_right = 353.0
+offset_bottom = 279.0
+text = "Proto level 1"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 345.0
+offset_right = 351.0
+offset_bottom = 411.0
+text = "Proto level 2"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 489.0
+offset_right = 355.0
+offset_bottom = 555.0
+text = "Proto level 3"

@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi84she13betv"]
+
+[ext_resource type="Script" uid="uid://b7vmfanjqlca7" path="res://scripts/intro_text.gd" id="1_t64a1"]
+
+[node name="Intro_text" type="Control" groups=["Text"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t64a1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1166.0
+offset_bottom = 658.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 254.0
+offset_right = 696.0
+offset_bottom = 277.0
+text = "I wondered why the horizon stretched on"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 409.0
+offset_top = 287.0
+offset_right = 692.0
+offset_bottom = 310.0
+text = "but now that I see it, my wonder is gone"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0

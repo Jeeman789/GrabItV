@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://db7deiu77alh6"]
 
-[ext_resource type="Texture2D" uid="uid://bxl432w88h445" path="res://images/samus.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cjnrl76eajgne" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://dch3acemajvkx" path="res://images/Player.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 259.99997
+radius = 340.0001
 height = 1159.9999
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_3vyb7"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhqgy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_3vyb7")
+"texture": ExtResource("2_g2els")
 }],
 "loop": true,
 "name": &"default",
@@ -22,7 +22,7 @@ animations = [{
 size = Vector2(320.0001, 40.000076)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
-radius = 399.99997
+radius = 500.00006
 height = 1599.9999
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -36,7 +36,9 @@ scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_3vyb7")
+position = Vector2(3.2424927e-05, -20.000027)
+scale = Vector2(19.199997, 24.8)
+sprite_frames = SubResource("SpriteFrames_qhqgy")
 
 [node name="ground sensor" type="Area2D" parent="."]
 
