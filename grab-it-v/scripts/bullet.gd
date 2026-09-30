@@ -16,8 +16,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
-	if abs(rotation - (rotation_rad)) > 0.01:
-		rotation = lerp_angle(rotation, rotation_rad, 4 * delta)
+	if abs(rotation - (rotation_rad + PI/2)) > 0.01:
+		rotation = lerp_angle(rotation, rotation_rad+PI/2, 4 * delta)
 	if velocity.length() < 20:
 		queue_free()
 

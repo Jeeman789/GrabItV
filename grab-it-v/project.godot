@@ -23,6 +23,7 @@ GravityFunctions="*res://scripts/Autoloads/GravityFunctions.gd"
 [display]
 
 window/size/transparent=true
+window/stretch/mode="canvas_items"
 window/per_pixel_transparency/allowed=true
 
 [input]

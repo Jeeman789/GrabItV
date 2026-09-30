@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://db7deiu77alh6"]
 
 [ext_resource type="Script" uid="uid://cjnrl76eajgne" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://dch3acemajvkx" path="res://images/Player.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://m1ojr3pa4f7w" path="res://images/pixil-frame-0.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 340.0001
@@ -14,7 +14,7 @@ animations = [{
 "texture": ExtResource("2_g2els")
 }],
 "loop": true,
-"name": &"default",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -39,6 +39,7 @@ shape = SubResource("CapsuleShape2D_g2els")
 position = Vector2(3.2424927e-05, -20.000027)
 scale = Vector2(19.199997, 24.8)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
+animation = &"new_animation"
 
 [node name="ground sensor" type="Area2D" parent="."]
 

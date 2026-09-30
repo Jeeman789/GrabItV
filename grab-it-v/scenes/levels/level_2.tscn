@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgjqu2hjsgdl8"]
+
+[ext_resource type="PackedScene" uid="uid://b1jctl07m2a6i" path="res://scenes/objects/big_planet.tscn" id="1_l37oo"]
+[ext_resource type="PackedScene" uid="uid://dbq0pkbstp1i5" path="res://scenes/objects/med_planet.tscn" id="2_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://dbfargykcwbv5" path="res://scenes/objects/small_planet.tscn" id="3_ibugp"]
+[ext_resource type="PackedScene" uid="uid://l5u2bqlstuk1" path="res://scenes/objects/flag.tscn" id="4_8qukl"]
+[ext_resource type="PackedScene" uid="uid://cxj24jo2fy8o6" path="res://scenes/enemies/shooter.tscn" id="5_3p04p"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Big_Planet" parent="." instance=ExtResource("1_l37oo")]
+position = Vector2(-614, 629)
+
+[node name="Med_Planet" parent="." instance=ExtResource("2_qpwj6")]
+position = Vector2(705, 631)
+
+[node name="Med_Planet2" parent="." instance=ExtResource("2_qpwj6")]
+position = Vector2(1563, 751)
+
+[node name="Small_planet" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(2457, 665)
+
+[node name="Small_planet2" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(2247, 1210)
+
+[node name="Small_planet3" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(3113, 1062)
+
+[node name="Small_planet4" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(2854, 1676)
+
+[node name="Small_planet5" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(3293, 441)
+
+[node name="Small_planet6" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(3655, 1804)
+
+[node name="Small_planet7" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(3907, 1166)
+
+[node name="Med_Planet3" parent="." instance=ExtResource("2_qpwj6")]
+position = Vector2(4608, 2257)
+
+[node name="Med_Planet4" parent="." instance=ExtResource("2_qpwj6")]
+position = Vector2(3532, 2781)
+
+[node name="Big_Planet2" parent="." instance=ExtResource("1_l37oo")]
+position = Vector2(4588, 5055)
+
+[node name="Small_planet8" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(4299, 3051)
+
+[node name="Small_planet9" parent="." instance=ExtResource("3_ibugp")]
+position = Vector2(4406, 3770)
+
+[node name="Flag" parent="." instance=ExtResource("4_8qukl")]
+position = Vector2(4542, 4270)
+rotation = -0.16977827
+
+[node name="Shooter" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(1143, 408)
+rotation = 1.5717403
+
+[node name="Shooter2" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(1868, 568)
+rotation = 0.8282172
+
+[node name="Shooter3" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(1723, 1069)
+rotation = -0.27076837
+
+[node name="Shooter4" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(3424, 1472)
+
+[node name="Shooter5" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(3394.0002, 1460.0002)
+rotation = -2.3874898
+
+[node name="Shooter6" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(3398, 1489)
+rotation = 2.0118039
+
+[node name="Shooter7" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(3978.9998, 2247.9998)
+rotation = 0.16970469
+
+[node name="Shooter8" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(3949, 2236)
+rotation = -2.2177851
+
+[node name="Shooter9" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(3952.9998, 2265)
+rotation = 2.1815085
+
+[node name="Shooter10" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(3845, 3245)
+rotation = -1.1525587
+
+[node name="Shooter11" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(4870, 2918)
+rotation = -2.602295
+
+[node name="Shooter12" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(4131, 2660)
+rotation = 1.8413093
+
+[node name="Shooter13" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(4162, 2644)
+rotation = 0.6739053
+
+[node name="Shooter14" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(3994, 3354)
+rotation = -0.15526555
+
+[node name="Shooter15" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(4045, 3530.9995)
+rotation = -0.15526555
+
+[node name="Shooter16" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(4673, 3280)
+rotation = 2.9388294
+
+[node name="Shooter17" parent="." instance=ExtResource("5_3p04p")]
+position = Vector2(4730, 3472)
+rotation = 2.985717

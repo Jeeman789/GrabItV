@@ -4,6 +4,7 @@ extends Node
 
 var level_order = [
 	"res://scenes/levels/level_1.tscn",
+	"res://scenes/levels/level_2.tscn",
 	"res://scenes/levels/proto_level.tscn",
 	"res://scenes/levels/proto_level_2.tscn"
 ]

@@ -20,6 +20,16 @@
 				"bottom" : 3500
 			}
 		},
+		"level_2": {
+			"spawn_point": {
+				"x": 180.0,
+				"y": 230.0
+			},
+			"camera": {
+				"right": 5720,
+				"bottom": 4525
+			}
+		},
 		"proto_level_2": {
 			"spawn_point": {
 				"x": 201.0,
