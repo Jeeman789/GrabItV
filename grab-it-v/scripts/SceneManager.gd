@@ -10,8 +10,10 @@ var level_order = [
 ]
 var current_level_index = 0
 var current_level = null
+var level_data = {}
 
 func _ready():
+	level_data = load_json_file("res://resources/level_data.json")
 	EventBus.level_finished.connect(_on_level_finished)
 	EventBus.reset_level.connect(_on_reset_level)
 	next_scene(true)
@@ -27,7 +29,6 @@ func next_scene(same: bool = false):
 		current_level = level.instantiate()
 		add_child(current_level)
 		
-		var level_data = load_json_file("res://resources/level_data.json")
 		var scene_name = level_order[current_level_index].get_file().get_basename()
 		var info = level_data["levels"][scene_name]
 
