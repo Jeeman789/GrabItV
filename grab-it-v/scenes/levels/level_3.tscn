@@ -1,3 +1,53 @@
-[gd_scene format=3 uid="uid://cyld87k4l00ua"]
+[gd_scene load_steps=5 format=3 uid="uid://cyld87k4l00ua"]
+
+[ext_resource type="PackedScene" uid="uid://b1jctl07m2a6i" path="res://scenes/objects/big_planet.tscn" id="1_0qepi"]
+[ext_resource type="PackedScene" uid="uid://dbq0pkbstp1i5" path="res://scenes/objects/med_planet.tscn" id="2_fmg3e"]
+[ext_resource type="PackedScene" uid="uid://dbfargykcwbv5" path="res://scenes/objects/small_planet.tscn" id="3_ftfob"]
+[ext_resource type="PackedScene" uid="uid://l5u2bqlstuk1" path="res://scenes/objects/flag.tscn" id="4_fkk1g"]
 
 [node name="Level3" type="Node2D"]
+
+[node name="Big_Planet" parent="." instance=ExtResource("1_0qepi")]
+position = Vector2(11848, 8231)
+
+[node name="Med_Planet" parent="." instance=ExtResource("2_fmg3e")]
+position = Vector2(14323, 8226)
+
+[node name="Med_Planet2" parent="." instance=ExtResource("2_fmg3e")]
+position = Vector2(16592, 8257)
+
+[node name="Small_planet" parent="." instance=ExtResource("3_ftfob")]
+position = Vector2(13391, 8214)
+
+[node name="Small_planet2" parent="." instance=ExtResource("3_ftfob")]
+position = Vector2(15453, 8199)
+
+[node name="Big_Planet2" parent="." instance=ExtResource("1_0qepi")]
+position = Vector2(14627, 4317)
+
+[node name="Med_Planet3" parent="." instance=ExtResource("2_fmg3e")]
+position = Vector2(12725, 6900)
+
+[node name="Med_Planet4" parent="." instance=ExtResource("2_fmg3e")]
+position = Vector2(13649, 5626)
+
+[node name="Med_Planet5" parent="." instance=ExtResource("2_fmg3e")]
+position = Vector2(10735, 7184)
+
+[node name="Small_planet3" parent="." instance=ExtResource("3_ftfob")]
+position = Vector2(10074, 6533)
+
+[node name="Small_planet4" parent="." instance=ExtResource("3_ftfob")]
+position = Vector2(9425, 5884)
+
+[node name="Big_Planet3" parent="." instance=ExtResource("1_0qepi")]
+position = Vector2(8315, 4543)
+
+[node name="Med_Planet6" parent="." instance=ExtResource("2_fmg3e")]
+position = Vector2(6209, 3231)
+
+[node name="Med_Planet7" parent="." instance=ExtResource("2_fmg3e")]
+position = Vector2(6181, 5322)
+
+[node name="Flag" parent="." instance=ExtResource("4_fkk1g")]
+position = Vector2(6214, 3034)
