@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://db7deiu77alh6"]
+[gd_scene load_steps=8 format=3 uid="uid://db7deiu77alh6"]
 
 [ext_resource type="Script" uid="uid://cjnrl76eajgne" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://m1ojr3pa4f7w" path="res://images/pixil-frame-0.png" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://buorp8e5te2k3" path="res://scenes/ball.tscn" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 340.0001
@@ -67,6 +68,8 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
 drag_right_margin = 0.1
+
+[node name="Ball_holder" parent="." instance=ExtResource("3_qhqgy")]
 
 [connection signal="body_entered" from="ground sensor" to="." method="_on_ground_sensor_body_entered"]
 [connection signal="body_exited" from="ground sensor" to="." method="_on_ground_sensor_body_exited"]

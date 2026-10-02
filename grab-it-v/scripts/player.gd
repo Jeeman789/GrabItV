@@ -11,8 +11,10 @@ var upside_down = false
 var on_ground = false
 var can_jump = true
 var can_reverse = false
+var power_active = false
 var planets = []
 var gravity_point = Vector2(-1,-1)
+var prev_pos: Vector2
 var rotation_rad = 0.0
 
 func _ready() -> void:
@@ -20,6 +22,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
+	power()
 	if abs(rotation - (rotation_rad - PI/2)) > 0.01:
 		rotation = lerp_angle(rotation, rotation_rad - PI/2, 4 * delta)
 	if not get_tree().paused and Input.is_action_pressed("pause"):
@@ -79,6 +82,17 @@ func movement(delta):
 		velocity = velocity * 0.9
 		
 	move_and_slide()
+
+func power():
+	if Input.is_action_pressed("Activate") and not power_active:
+		power_active = true
+		planets.append($Ball_holder.ball_pos)
+		prev_pos = $Ball_holder.ball_pos
+	elif not Input.is_action_pressed("Activate") and power_active:
+		power_active = false
+		planets.erase(prev_pos)
+	print(planets)
+	print(prev_pos)
 
 func gravity_force(delta, point: Vector2):
 	var direction = (point - position).normalized()
