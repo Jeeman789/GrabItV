@@ -11,6 +11,7 @@ var upside_down = false
 var on_ground = false
 var can_jump = true
 var can_reverse = false
+var can_power = false
 var power_active = false
 var planets = []
 var gravity_point = Vector2(-1,-1)
@@ -87,6 +88,8 @@ func movement(delta):
 func power():
 	if Input.is_action_pressed("Activate") and not power_active:
 		power_active = true
+		if not $Ball_timer.is_stopped():
+			$Ball_timer.start()
 	elif not Input.is_action_pressed("Activate") and power_active:
 		power_active = false
 		find_gravity_point()
@@ -113,6 +116,7 @@ func _on_ground_sensor_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Planet"):
 		on_ground = true
 		can_reverse = true
+		can_power = true
 
 func _on_ground_sensor_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Planet"):
@@ -139,3 +143,8 @@ func _on_planet_sensor_area_exited(area: Area2D) -> void:
 			gravity_point = Vector2(-1,-1)
 		else:
 			find_gravity_point()
+
+
+func _on_ball_timer_timeout() -> void:
+	power_active = false
+	find_gravity_point()

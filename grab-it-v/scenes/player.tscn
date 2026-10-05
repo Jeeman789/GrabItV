@@ -71,8 +71,12 @@ drag_right_margin = 0.1
 
 [node name="Ball_holder" parent="." instance=ExtResource("3_qhqgy")]
 
+[node name="Ball_timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="ground sensor" to="." method="_on_ground_sensor_body_entered"]
 [connection signal="body_exited" from="ground sensor" to="." method="_on_ground_sensor_body_exited"]
 [connection signal="area_entered" from="planet sensor" to="." method="_on_planet_sensor_area_entered"]
 [connection signal="area_exited" from="planet sensor" to="." method="_on_planet_sensor_area_exited"]
 [connection signal="timeout" from="Jump_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Ball_timer" to="." method="_on_ball_timer_timeout"]
