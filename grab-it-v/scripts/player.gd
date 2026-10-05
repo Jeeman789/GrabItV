@@ -89,7 +89,7 @@ func power():
 		power_active = true
 	elif not Input.is_action_pressed("Activate") and power_active:
 		power_active = false
-		gravity_point = Vector2(-1,-1)
+		find_gravity_point()
 	if power_active:
 		find_gravity_point()
 
@@ -102,6 +102,8 @@ func find_gravity_point():
 	var avg = Vector2(0.0,0.0)
 	if power_active:
 		gravity_point  = ballholder.get_child(0).global_position
+	elif len(planets) == 0:
+		gravity_point = Vector2(-1,-1)
 	else:
 		for i in range(len(planets)):
 			avg += planets[i]

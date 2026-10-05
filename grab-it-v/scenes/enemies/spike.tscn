@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://dertay20kcrbn"]
+[gd_scene load_steps=4 format=3 uid="uid://dertay20kcrbn"]
 
-[node name="Spike" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b2f5e4o0vjd3s" path="res://images/icon.svg" id="1_akaju"]
+[ext_resource type="Script" uid="uid://gtulmvqs877q" path="res://scripts/spike.gd" id="1_vqj0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akaju"]
+size = Vector2(68, 62)
+
+[node name="Spike" type="Area2D"]
+script = ExtResource("1_vqj0v")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.55859375, 0.5175781)
+texture = ExtResource("1_akaju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_akaju")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
