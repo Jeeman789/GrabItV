@@ -16,9 +16,10 @@ var planets = []
 var gravity_point = Vector2(-1,-1)
 var prev_pos: Vector2
 var rotation_rad = 0.0
+var ballholder
 
 func _ready() -> void:
-	pass
+	ballholder = $Ball_holder
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
@@ -86,13 +87,11 @@ func movement(delta):
 func power():
 	if Input.is_action_pressed("Activate") and not power_active:
 		power_active = true
-		planets.append($Ball_holder.ball_pos)
-		prev_pos = $Ball_holder.ball_pos
 	elif not Input.is_action_pressed("Activate") and power_active:
 		power_active = false
-		planets.erase(prev_pos)
-	print(planets)
-	print(prev_pos)
+		gravity_point = Vector2(-1,-1)
+	if power_active:
+		find_gravity_point()
 
 func gravity_force(delta, point: Vector2):
 	var direction = (point - position).normalized()
@@ -101,9 +100,12 @@ func gravity_force(delta, point: Vector2):
 
 func find_gravity_point():
 	var avg = Vector2(0.0,0.0)
-	for i in range(len(planets)):
-		avg += planets[i]
-	gravity_point = avg / len(planets)
+	if power_active:
+		gravity_point  = ballholder.get_child(0).global_position
+	else:
+		for i in range(len(planets)):
+			avg += planets[i]
+		gravity_point = avg / len(planets)
 
 func _on_ground_sensor_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Planet"):
