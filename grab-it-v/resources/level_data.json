@@ -39,6 +39,19 @@
 				"path": "res://scenes/levels/level_2.tscn",
 			}
 		},
+		"level_3": {
+			"spawn_point": {
+				"x": 8000,
+				"y": 5500
+			},
+			"camera": {
+				"right": 13000,
+				"bottom": 7300
+			},
+			"metadata": {
+				"path": "res://scenes/levels/level_3.tscn",
+			}
+		},
 		"proto_level_2": {
 			"spawn_point": {
 				"x": 201.0,

@@ -8,46 +8,46 @@
 [node name="Level3" type="Node2D"]
 
 [node name="Big_Planet" parent="." instance=ExtResource("1_0qepi")]
-position = Vector2(11848, 8231)
+position = Vector2(7127.0005, 5927)
 
 [node name="Med_Planet" parent="." instance=ExtResource("2_fmg3e")]
-position = Vector2(14323, 8226)
+position = Vector2(9602, 5922)
 
 [node name="Med_Planet2" parent="." instance=ExtResource("2_fmg3e")]
-position = Vector2(16592, 8257)
+position = Vector2(11871, 5953)
 
 [node name="Small_planet" parent="." instance=ExtResource("3_ftfob")]
-position = Vector2(13391, 8214)
+position = Vector2(8670, 5910)
 
 [node name="Small_planet2" parent="." instance=ExtResource("3_ftfob")]
-position = Vector2(15453, 8199)
+position = Vector2(10732, 5895)
 
 [node name="Big_Planet2" parent="." instance=ExtResource("1_0qepi")]
-position = Vector2(14627, 4317)
+position = Vector2(9906, 2013.0002)
 
 [node name="Med_Planet3" parent="." instance=ExtResource("2_fmg3e")]
-position = Vector2(12725, 6900)
+position = Vector2(8004.0005, 4596)
 
 [node name="Med_Planet4" parent="." instance=ExtResource("2_fmg3e")]
-position = Vector2(13649, 5626)
+position = Vector2(8928, 3322.0002)
 
 [node name="Med_Planet5" parent="." instance=ExtResource("2_fmg3e")]
-position = Vector2(10735, 7184)
+position = Vector2(6014.0005, 4880)
 
 [node name="Small_planet3" parent="." instance=ExtResource("3_ftfob")]
-position = Vector2(10074, 6533)
+position = Vector2(5353.0005, 4229)
 
 [node name="Small_planet4" parent="." instance=ExtResource("3_ftfob")]
-position = Vector2(9425, 5884)
+position = Vector2(4704.0005, 3580.0002)
 
 [node name="Big_Planet3" parent="." instance=ExtResource("1_0qepi")]
-position = Vector2(8315, 4543)
+position = Vector2(3594.0005, 2239.0002)
 
 [node name="Med_Planet6" parent="." instance=ExtResource("2_fmg3e")]
-position = Vector2(6209, 3231)
+position = Vector2(1488.0005, 927.00024)
 
 [node name="Med_Planet7" parent="." instance=ExtResource("2_fmg3e")]
-position = Vector2(6181, 5322)
+position = Vector2(1460.0005, 3018.0002)
 
 [node name="Flag" parent="." instance=ExtResource("4_fkk1g")]
-position = Vector2(6214, 3034)
+position = Vector2(1493, 730)
