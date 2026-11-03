@@ -72,7 +72,7 @@ drag_right_margin = 0.1
 [node name="Ball_holder" parent="." instance=ExtResource("3_qhqgy")]
 
 [node name="Ball_timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 
 [connection signal="body_entered" from="ground sensor" to="." method="_on_ground_sensor_body_entered"]
 [connection signal="body_exited" from="ground sensor" to="." method="_on_ground_sensor_body_exited"]
